@@ -19,7 +19,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>姓名</th>
+                        <th>姓名0001</th>
                         <th>年龄</th>
                         <th>操作</th>
                     </tr>
