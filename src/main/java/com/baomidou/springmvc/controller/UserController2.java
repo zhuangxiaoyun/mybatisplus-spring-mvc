@@ -27,6 +27,8 @@ public class UserController2 extends BaseController {
 
     @RequestMapping("/preSave")
     public ModelAndView preSave(ModelAndView modelAndView, @RequestParam(value = "id", required = false) Long id) {
+        System.out.println("preSave=============");
+
         modelAndView.setViewName("save");
         if (id != null) {
             modelAndView.addObject("user", userService.selectById(id));
