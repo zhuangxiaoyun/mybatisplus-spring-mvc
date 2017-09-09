@@ -27,8 +27,11 @@ public class UserController2 extends BaseController {
 
     @RequestMapping("/preSave")
     public ModelAndView preSave(ModelAndView modelAndView, @RequestParam(value = "id", required = false) Long id) {
+        
         modelAndView.setViewName("save");
+        
         if (id != null) {
+            
             modelAndView.addObject("user", userService.selectById(id));
         }
         return modelAndView;
@@ -37,9 +40,11 @@ public class UserController2 extends BaseController {
     @ResponseBody
     @RequestMapping("save")
     public Object save(User user) {
+        
         if (user.getId() == null) {
             return userService.insert(user) ? renderSuccess("添加成功") : renderError("添加失败");
         } else {
+            
             return userService.updateById(user) ? renderSuccess("修改成功") : renderError("修改失败");
         }
     }
