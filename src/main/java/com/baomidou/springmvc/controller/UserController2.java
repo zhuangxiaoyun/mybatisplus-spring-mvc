@@ -25,22 +25,15 @@ public class UserController2 extends BaseController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public ModelAndView index(ModelAndView modelAndView, @RequestParam(value = "param", required = false) String param) {
-        modelAndView.setViewName("index");
-        if (StringUtil.isNotEmpty(param)) {
-            modelAndView.addObject("userList", userService.selectList(new EntityWrapper<User>().and("name={0}", param)));
-        } else {
-            modelAndView.addObject("userList", userService.selectList(null));
+    @RequestMapping("/preSave")
+    public ModelAndView preSave(ModelAndView modelAndView, @RequestParam(value = "id", required = false) Long id) {
+        modelAndView.setViewName("save");
+        if (id != null) {
+            modelAndView.addObject("user", userService.selectById(id));
         }
-        Page<User> page = new Page<User>();
-        page = userService.selectPage(page);
-        modelAndView.addObject("page", page);
-
         return modelAndView;
     }
 
-    
     @ResponseBody
     @RequestMapping("save")
     public Object save(User user) {

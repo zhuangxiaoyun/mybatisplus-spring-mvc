@@ -6,7 +6,6 @@ package com.baomidou.springmvc.model.system;
 public class User2 {
     private String name;
     private String age;
-    private String birthdate;
     private String className;
 
     public String getName() {
@@ -19,14 +18,6 @@ public class User2 {
 
     public String getAge() {
         return age;
-    }
-
-    public String getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
     }
 
     public void setAge(String age) {
