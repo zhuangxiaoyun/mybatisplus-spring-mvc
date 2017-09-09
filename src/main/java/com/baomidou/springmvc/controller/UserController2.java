@@ -40,15 +40,7 @@ public class UserController2 extends BaseController {
         return modelAndView;
     }
 
-    @RequestMapping("/preSave")
-    public ModelAndView preSave(ModelAndView modelAndView, @RequestParam(value = "id", required = false) Long id) {
-        modelAndView.setViewName("save");
-        if (id != null) {
-            modelAndView.addObject("user", userService.selectById(id));
-        }
-        return modelAndView;
-    }
-
+    
     @ResponseBody
     @RequestMapping("save")
     public Object save(User user) {
